@@ -1,0 +1,13 @@
+@import "flex-base";
+
+@include flex-common();
+@include flex-container();
+
+/* Small screens */
+@import "flex-small";
+/* medium screens */
+@import "flex-medium";
+/* Large screens */
+@import "flex-large";
+/* xLarge screens */
+@import "flex-xlarge";

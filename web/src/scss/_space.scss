@@ -1,0 +1,51 @@
+@mixin vertical-space($num) {
+  .space {
+    &.v-#{$num} {
+      margin-top: #{$num}em;
+      content: "";
+      height: 1px;
+      width: 1px;
+    }
+  }
+}
+
+@mixin horizontal-space($num) {
+  .space {
+    &.h-#{$num} {
+      margin-left: #{$num}em;
+      content: "";
+      height: 1px;
+      width: 1px;
+    }
+  }
+}
+
+@mixin vertical-margin($num) {
+  .h-#{$num} {
+    margin-top: #{$num}em;
+    margin-bottom: #{$num}em;
+  }
+}
+
+@mixin horizontal-margin($num) {
+  .h-#{$num} {
+    margin-left: #{$num}em;
+    margin-right: #{$num}em;
+  }
+}
+
+@mixin pad($num) {
+  .pad-#{$num} {
+    padding: #{$num}em;
+  }
+}
+
+$space-amounts: 1 2 3 4 5;
+
+@each $num in $space-amounts {
+  @include vertical-space($num);
+  @include horizontal-space($num);
+  @include vertical-margin($num);
+  @include horizontal-margin($num);
+  @include pad($num);
+}

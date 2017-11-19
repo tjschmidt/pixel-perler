@@ -1,0 +1,23 @@
+.upload-container {
+  height: 300px;
+  background: #7fe2a4;
+  margin: 3em 0;
+
+  &.advanced {
+    outline: 2px dashed black;
+    outline-offset: -10px;
+
+    .drag-n-drop {
+      display: inline-block;
+      margin: 0 0.5em;
+    }
+  }
+
+  &.dragover {
+    background: gray;
+  }
+
+  .drag-n-drop, .file {
+    display: none;
+  }
+}

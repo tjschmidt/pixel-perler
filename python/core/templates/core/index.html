@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script>
+        function uploadCallback(json) {
+            if (json.error === null) {
+                window.location = "{% url 'core:process' %}?key=" + json.key;
+            } else {
+                console.log(json.error);
+            }
+        }
+
+        $(function () {
+            fileUpload($('form'), $('#image-upload'), uploadCallback, 5 * Math.pow(2, 20));
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="flex spread">
+        <div class="flex-0-small flex-0-medium flex-0-large flex-20-xlarge flex">
+            <img class="banner left" src="{% static 'res/banner.png' %}">
+        </div>
+        <div class="flex-100 flex-60-xlarge flex center-h">
+            <div class="flex-100 flex column center">
+                <h1>Pixel-Perler</h1>
+                <h3 class="centered">Create pixel-perfect bead templates for your favorite images</h3>
+                <div class="space v-3"></div>
+                <h2 class="centered">How it Works</h2>
+                <div class="flex column">
+                    <h4>1. Upload your image by dragging it onto the drop area or by clicking "Choose an image"</h4>
+                    <h4>2. Select your available colors, output size, and choose any filters that you'd like to apply to
+                        the source image</h4>
+                    <h4>3. Download your template as a printable PDF</h4>
+                </div>
+            </div>
+            <div class="flex-90 flex">
+                <form class="upload-container flex-100 flex center" action="{% url 'core:upload' %}" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input class="file" id="image-upload" type="file" name="file">
+                    <label class="clickable strong" for="image-upload">Choose an image</label><span class="drag-n-drop">or drag it here.</span>
+                    <div class="flex-100 flex column center">
+                        <div class="centered pad-1">Accepted image formats: PNG, JPEG, GIF, BMP, and a number of
+                            others
+                        </div>
+                        <div class="space v-1"></div>
+                        <div class="centered pad-1">Max upload size: 5 MB</div>
+                    </div>
+                </form>
+            </div>
+            <div class="flex-100 flex column center centered">
+                <h2>What happens to my image?</h2>
+                <h4>Don't worry, we won't distribute your image to any third parties.
+                    Your image is kept on the server as long as you are using it,
+                    but once you finish your session (for example by closing your browser or uploading a new image),
+                    your image is promptly deleted.</h4>
+            </div>
+        </div>
+        <div class="flex-0-small flex-0-medium flex-0-large flex-20-xlarge flex end-major">
+            <img class="banner right" src="{% static 'res/banner2.png' %}">
+        </div>
+    </div>
+{% endblock %}

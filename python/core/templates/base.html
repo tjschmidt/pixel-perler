@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel-Perler - Pixel-perfect bead templates</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108360567-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108360567-2');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/pixel-perler.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/pixel-perler.min.js' %}"></script>
+    <script>
+        $(function () {
+            $('.toggle').click(function () {
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+<div class="content-container flex center-h">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

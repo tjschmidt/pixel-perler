@@ -1,0 +1,70 @@
+@import "reset";
+@import "font";
+@import "flex";
+@import "upload";
+@import "button";
+@import "form";
+@import "space";
+@import "animation";
+@import "modal";
+
+html {
+  background: $font-background-color;
+}
+
+.content-container {
+  margin: 1em 2em;
+  background: $font-background-color-light;
+  padding: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+}
+
+.divider {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: $font-color-light;
+
+  > span {
+
+    &.grow {
+      width: 100%;
+      height: 2px;
+      content: "";
+      border-bottom: 1px solid $font-color-light;
+    }
+
+    &.shrink {
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
+}
+
+.placeholder {
+  background: $placeholder-color;
+  border: 1px dotted black;
+}
+
+img {
+  margin: 2em 0;
+  max-width: 100%;
+}
+
+.banner {
+  margin: 0;
+
+  &.left {
+    padding-right: 1em;
+  }
+
+  &.right {
+    padding-left: 1em;
+  }
+}
+
+@import "select2";

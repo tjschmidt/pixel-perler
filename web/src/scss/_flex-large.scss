@@ -1,0 +1,8 @@
+@import "flex-base";
+
+$mod: "large";
+
+@media screen and (max-width: 1600px) {
+  @include flex-common($mod);
+  @include flex-container($mod);
+}

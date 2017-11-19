@@ -1,0 +1,56 @@
+@import "font";
+@import "animation";
+
+@include background-blink(bw-blink, $font-background-color-light, $font-background-color-light - #666666, $font-color, $font-color);
+
+.button {
+  font-family: $font-stack;
+  border: 3px solid black;
+  padding: 0.5em;
+  text-align: center;
+  cursor: pointer;
+  background: $font-background-color-light;
+  font-size: $font-size;
+  margin: 1em;
+  color: $font-color;
+  @extend .strong;
+
+  &.toggle {
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+
+    &.active {
+      background: $font-color;
+      color: $font-color-inverse;
+    }
+  }
+
+  &.pill {
+    -webkit-border-radius: 1.25em;
+    -moz-border-radius: 1.25em;
+    border-radius: 1.25em;
+  }
+
+  &.rounded {
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em;
+  }
+
+  &.blink {
+    @include anim(bw-blink, 2.5s);
+  }
+
+  &.primary {
+    color: #276e3a;
+    border-color: #276e3a;
+  }
+
+  &.danger {
+    color: #b3473e;
+    border-color: #b3473e;
+  }
+}

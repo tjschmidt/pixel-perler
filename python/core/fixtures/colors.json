@@ -1,0 +1,579 @@
+[
+  {
+    "model": "core.BeadBrand",
+    "pk": 1,
+    "fields": {
+      "name": "Perler"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "White",
+      "red": "241",
+      "green": "241",
+      "blue": "241"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Cream",
+      "red": "224",
+      "green": "222",
+      "blue": "169"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Yellow",
+      "red": "326",
+      "green": "216",
+      "blue": "0"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Orange",
+      "red": "237",
+      "green": "97",
+      "blue": "32"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Red",
+      "red": "191",
+      "green": "46",
+      "blue": "64"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Bubblegum",
+      "red": "221",
+      "green": "102",
+      "blue": "155"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Purple",
+      "red": "96",
+      "green": "64",
+      "blue": "137"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Dark Blue",
+      "red": "43",
+      "green": "63",
+      "blue": "135"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Light Blue",
+      "red": "51",
+      "green": "112",
+      "blue": "192"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Dark Green",
+      "red": "28",
+      "green": "117",
+      "blue": "62"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pearl Coral",
+      "red": "249",
+      "green": "126",
+      "blue": "121"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pearl Light Blue",
+      "red": "122",
+      "green": "174",
+      "blue": "162"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pearl Green",
+      "red": "132",
+      "green": "183",
+      "blue": "145"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pearl Yellow",
+      "red": "202",
+      "green": "192",
+      "blue": "51"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pearl Light Pink",
+      "red": "215",
+      "green": "168",
+      "blue": "162"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Silver",
+      "red": "119",
+      "green": "123",
+      "blue": "129"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Light Green",
+      "red": "86",
+      "green": "186",
+      "blue": "159"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Brown",
+      "red": "81",
+      "green": "57",
+      "blue": "49"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Grey",
+      "red": "138",
+      "green": "141",
+      "blue": "145"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Black",
+      "red": "46",
+      "green": "47",
+      "blue": "50"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Rust",
+      "red": "140",
+      "green": "55",
+      "blue": "44"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Light Brown",
+      "red": "129",
+      "green": "93",
+      "blue": "52"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Peach",
+      "red": "238",
+      "green": "186",
+      "blue": "178"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Tan",
+      "red": "188",
+      "green": "147",
+      "blue": "113"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Magenta",
+      "red": "242",
+      "green": "42",
+      "blue": "123"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Neon Yellow",
+      "red": "220",
+      "green": "224",
+      "blue": "2"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Neon Orange",
+      "red": "255",
+      "green": "119",
+      "blue": "0"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Neon Green",
+      "red": "1",
+      "green": "158",
+      "blue": "67"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Neon Pink",
+      "red": "255",
+      "green": "57",
+      "blue": "145"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pastel Blue",
+      "red": "83",
+      "green": "144",
+      "blue": "209"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pastel Green",
+      "red": "118",
+      "green": "200",
+      "blue": "130"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pastel Lavender",
+      "red": "138",
+      "green": "114",
+      "blue": "193"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pastel Yellow",
+      "red": "254",
+      "green": "248",
+      "blue": "117"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Cheddar",
+      "red": "241",
+      "green": "170",
+      "blue": "12"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Toothpaste",
+      "red": "147",
+      "green": "200",
+      "blue": "212"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Hot Coral",
+      "red": "255",
+      "green": "56",
+      "blue": "81"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Plum",
+      "red": "162",
+      "green": "75",
+      "blue": "156"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Kiwi Lime",
+      "red": "108",
+      "green": "190",
+      "blue": "19"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Cyan/Turquoise",
+      "red": "43",
+      "green": "137",
+      "blue": "198"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Blush",
+      "red": "255",
+      "green": "130",
+      "blue": "133"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Periwinkle Blue",
+      "red": "100",
+      "green": "124",
+      "blue": "190"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Glow Green",
+      "red": "190",
+      "green": "198",
+      "blue": "150"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Light Pink",
+      "red": "246",
+      "green": "179",
+      "blue": "221"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Bright Green",
+      "red": "79",
+      "green": "173",
+      "blue": "66"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Light Grey",
+      "red": "177",
+      "green": "181",
+      "blue": "178"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Evergreen",
+      "red": "53",
+      "green": "83",
+      "blue": "67"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Lavender",
+      "red": "173",
+      "green": "152",
+      "blue": "212"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Pink",
+      "red": "228",
+      "green": "72",
+      "blue": "146"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Gold",
+      "red": "187",
+      "green": "118",
+      "blue": "52"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Raspberry",
+      "red": "165",
+      "green": "48",
+      "blue": "97"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Butterscotch",
+      "red": "212",
+      "green": "132",
+      "blue": "55"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Parrot Green",
+      "red": "6",
+      "green": "124",
+      "blue": "129"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Dark Grey",
+      "red": "77",
+      "green": "81",
+      "blue": "86"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Blueberry Cream",
+      "red": "130",
+      "green": "151",
+      "blue": "217"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Cranapple",
+      "red": "128",
+      "green": "50",
+      "blue": "69"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Prickly Pear",
+      "red": "189",
+      "green": "218",
+      "blue": "1"
+    }
+  },
+  {
+    "model": "core.BeadColor",
+    "fields": {
+      "brand": 1,
+      "name": "Sand",
+      "red": "228",
+      "green": "182",
+      "blue": "144"
+    }
+  }
+]

@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+    <script>
+        // Update the form fields to be internally consistent
+        function updateForm() {
+            var blur = $('#blur');
+            var sharpen = $('#sharpen');
+
+            // Make sure blur and sharpen aren't both selected
+            blur.val($('#blur-toggle').hasClass('active') ? 1 : 0);
+            sharpen.val($('#sharpen-toggle').hasClass('active') ? 1 : 0);
+            blur.trigger('change');
+            sharpen.trigger('change');
+        }
+
+        // Update the real-life measurements (assumes a 5mm bead size)
+        function updateMeasurements() {
+            var width = $('#width').val();
+            var height = $('#height').val();
+            $('#width-cm').html((width / 2) + ' cm');
+            $('#height-cm').html((height / 2) + ' cm');
+        }
+
+        // Aspect ratio for scaling
+        var aspectRatio = {{ aspect_ratio }};
+
+        // Values as of page load
+        var valuesChanged = false;
+        var originalValues = {
+            width: {{ width }},
+            height: {{ height }},
+            colors: [{% for color_id in selected_colors %}{{ color_id }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+            blur: {{ blur }},
+            sharpen: {{ sharpen }}
+        };
+        var watchFields = [['#width', 'width'], ['#height', 'height'], ['#sharpen', 'sharpen'], ['#blur', 'blur'], ['#colors', 'colors']];
+
+        // Checks fields to see if any changes have been made
+        function checkForChanges() {
+            valuesChanged = false;
+            $.each(watchFields, function (i, fieldArr) {
+                var val = $(fieldArr[0]).val();
+                if (val instanceof Array) {
+                    $.each(val, function (i, elem) {
+                        valuesChanged = valuesChanged || i >= originalValues.colors.length || elem != originalValues.colors[i];
+                    });
+                } else
+                    valuesChanged = valuesChanged || $(fieldArr[0]).val() != originalValues[fieldArr[1]];
+            });
+        }
+
+        $(function () {
+            updateMeasurements();
+
+            // Re-submit the image and parameters for processing
+            var reprocessBtn = $('#reprocess');
+            reprocessBtn.click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                new WaitModal().show();
+                $('#params-form').submit();
+            });
+
+            // Handle clicks on the blur and sharpen buttons
+            var blurToggle = $('#blur-toggle');
+            var sharpenToggle = $('#sharpen-toggle');
+            blurToggle.click(function () {
+                if ($(this).hasClass('active'))
+                    sharpenToggle.removeClass('active');
+                updateForm();
+            });
+            sharpenToggle.click(function () {
+                if ($(this).hasClass('active'))
+                    blurToggle.removeClass('active');
+                updateForm();
+            });
+
+            // Ensure width and height maintain the expected aspect ratio
+            var width = $('#width');
+            var height = $('#height');
+            width.keyup(function () {
+                if ($(this).val() !== '') {
+                    // Limit width to 256
+                    var curVal = $(this).val();
+                    if (curVal > 256) {
+                        // If height is the larger dimension, make that 256 and scale width accordingly
+                        if (aspectRatio < 1) {
+                            height.val(256);
+                            $(this).val(Math.round(256 * aspectRatio));
+                        } else {
+                            $(this).val(256);
+                            height.val(Math.round(256 / aspectRatio));
+                        }
+                    } else {
+                        height.val(Math.round(curVal / aspectRatio));
+                    }
+                    height.trigger('change');
+                    updateMeasurements();
+                }
+            });
+            height.keyup(function () {
+                if ($(this).val() !== '') {
+                    // Limit height to 256
+                    var curVal = $(this).val();
+                    if (curVal > 256) {
+                        // If width is the larger dimension, make that 256 and scale height accordingly
+                        if (aspectRatio > 1) {
+                            width.val(256);
+                            $(this).val(Math.round(256 / aspectRatio));
+                        } else {
+                            $(this).val(256);
+                            width.val(Math.round(256 * aspectRatio));
+                        }
+                    } else {
+                        width.val(Math.round(curVal * aspectRatio));
+                    }
+                    width.trigger('change');
+                    updateMeasurements();
+                }
+            });
+
+            // Register PDF download button
+            $('#download').click(function () {
+                triggerDownload("{% url 'core:download' %}?key={{ request.GET.key }}");
+            });
+
+            // Register handlers for select all and select none
+            $('#colors').select2();
+            $('#select-all').click(function () {
+                var colors = $('#colors');
+                colors.find('option').prop('selected', true);
+                colors.trigger('change');
+            });
+            $('#select-none').click(function () {
+                var colors = $('#colors');
+                colors.find('option').prop('selected', false);
+                colors.trigger('change');
+            });
+
+            // If any values have changed, alert the user by flashing the reprocess button
+            $.each(watchFields, function (i, fieldArr) {
+                $(fieldArr[0]).change(function () {
+                    checkForChanges();
+                    reprocessBtn.toggleClass('blink', valuesChanged);
+                });
+            });
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="flex-100 flex-90-xlarge flex center">
+        <div class="flex-100 flex center-h">
+            <div class="flex-100 flex-80-large flex-70-xlarge flex column center-h">
+                <h5 class="centered">Select your available bead colors and desired output size.</h5>
+                <h5 class="centered">
+                    Width and height are measured in beads, which are assumed to be standard 5mm beads.
+                    The real-life dimensions are listed beside the input boxes.
+                </h5>
+                <h5 class="centered">
+                    You can also choose to sharpen or soften your input image; this can improve the quality of the
+                    output
+                    for some images. Give it a try and see what you like.
+                </h5>
+                <h5 class="centered">
+                    When you're happy with your image, click the "Download Bead Template" button to get a printable PDF
+                    that you can place beads on top of to create a pixel-perfect image.
+                </h5>
+            </div>
+        </div>
+        <div class="flex-100 flex-30-xlarge flex center">
+            <img id="src-img" src="data:image/png;base64,{{ src }}">
+        </div>
+        <div id="params" class="flex-70 flex-40-xlarge flex center">
+            <form class="flex-100 flex center" id="params-form"
+                  action="{% url 'core:process' %}?key={{ request.GET.key }}" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="blur" name="blur" value="{{ blur }}">
+                <input type="hidden" id="sharpen" name="sharpen" value="{{ sharpen }}">
+                <div class="space v-3"></div>
+                <h4 class="flex-100 centered">Available Colors</h4>
+                <select title="colors" class="flex-60" id="colors" name="colors" multiple>
+                    {% for group_name, colors in color_groups.items %}
+                        <optgroup label="{{ group_name }}">
+                            {% for color in colors %}
+                                <option value="{{ color.id }}"
+                                        {% if color.id in selected_colors %}selected{% endif %}>{{ color.name }}</option>
+                            {% endfor %}
+                        </optgroup>
+                    {% endfor %}
+                </select>
+
+                <span class="small v-1 flex-100 flex center">
+                    <span id="select-all" class="clickable strong">Select All</span>
+                    <span class="h-1">|</span>
+                    <span id="select-none" class="clickable strong">Deselect All</span>
+                </span>
+
+                <h4 class="flex-100 centered">Output Dimensions</h4>
+                <div class="flex-100 flex center">
+                    <span class="small" id="width-cm"></span>
+                    <input class="centered short-3" title="width" type="number" id="width" name="width"
+                           value="{{ width }}">
+                    <span>width x height</span>
+                    <input class="centered short-3" title="height" type="number" id="height" name="height"
+                           value="{{ height }}">
+                    <span class="small" id="height-cm"></span>
+                </div>
+            </form>
+
+            <div id="blur-toggle" class="button toggle pill {% if blur %}active{% endif %} flex-40">Soften Source
+                Image
+            </div>
+            <div id="sharpen-toggle" class="button toggle pill {% if sharpen %}active{% endif %} flex-40">Sharpen Source
+                Image
+            </div>
+            <div class="flex-100 flex center">
+                <button id="reprocess" class="button rounded">Reprocess Image</button>
+            </div>
+        </div>
+        <div id="dest-img" class="flex-100 flex-30-xlarge flex center">
+            <img src="data:image/png;base64,{{ px }}">
+        </div>
+    </div>
+    <div class="flex-100 flex center">
+        <button id="download" class="button primary rounded">Download Bead Template</button>
+        <a href="{% url 'core:index' %}" class="button danger rounded">Upload New Image</a>
+    </div>
+{% endblock %}

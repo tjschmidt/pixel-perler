@@ -1,0 +1,13 @@
+$font-color: #242d27;
+$font-color-light: $font-color + #333333;
+$font-color-inverse: #ffffff - $font-color;
+$font-color-inverse-light: $font-color-inverse + #333333;
+$font-background-color: #e7dacb;
+$font-background-color-light: $font-background-color + #333333;
+$nav-background-color: #be4248;
+$nav-font-color: $font-background-color;
+$nav-highlight-color: $nav-background-color - #333333;
+$side-nav-color: #586473;
+$placeholder-color: #ccddb7;
+$button-color-primary: #21384b;
+$button-color-secondary: #4a89aa;

@@ -1,0 +1,19 @@
+@mixin background-blink($name, $bg1, $bg2, $font1, $font2) {
+  @keyframes #{$name} {
+    0%, 100% {
+      background-color: $bg1;
+      color: $font1;
+    }
+    50% {
+      background-color: $bg2;
+      color: $font2;
+    }
+  }
+}
+
+@mixin anim($name, $duration, $func: linear, $delay: 0s, $repeat: infinite) {
+  -webkit-animation: $name $duration $func $delay $repeat;
+  -moz-animation: $name $duration $func $delay $repeat;
+  -o-animation: $name $duration $func $delay $repeat;
+  animation: $name $duration $func $delay $repeat;
+}

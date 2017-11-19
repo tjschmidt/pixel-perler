@@ -1,0 +1,29 @@
+@import "color";
+@import "font";
+
+@mixin short($num) {
+  &.short-#{$num} {
+    max-width: 1em * $num + 1;
+  }
+}
+
+input, select {
+  font-size: $font-size;
+  color: $font-color;
+  padding: 0.5em;
+  border: 1px solid $font-color;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
+  margin: 0.5em;
+
+  @for $n from 1 through 5 {
+    @include short($n);
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

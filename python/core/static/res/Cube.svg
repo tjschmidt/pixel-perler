@@ -1,0 +1,44 @@
+<svg width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+     preserveAspectRatio="xMidYMid" class="lds-cube"
+     style="animation-play-state: running; animation-delay: 0s; background: none;">
+    <g transform="translate(25,25)" style="animation-play-state: running; animation-delay: 0s;">
+        <rect ng-attr-x="{{ config.dp }}" ng-attr-y="{{ config.dp }}" ng-attr-width="{{ config.blockSize }}"
+              ng-attr-height="{{ config.blockSize }}" ng-attr-fill="{{ config.c1 }}" x="-20" y="-20" width="40"
+              height="40" fill="#276e3a" transform="scale(1.02549 1.02549)"
+              style="animation-play-state: running; animation-delay: 0s;">
+            <animateTransform attributeName="transform" type="scale" calcMode="spline" values="1.25;1" keyTimes="0;1"
+                              dur="1s" keySplines="0 0.5 0.5 1" begin="-0.3s" repeatCount="indefinite"
+                              style="animation-play-state: running; animation-delay: 0s;"></animateTransform>
+        </rect>
+    </g>
+    <g transform="translate(75,25)" style="animation-play-state: running; animation-delay: 0s;">
+        <rect ng-attr-x="{{ config.dp }}" ng-attr-y="{{ config.dp }}" ng-attr-width="{{ config.blockSize }}"
+              ng-attr-height="{{ config.blockSize }}" ng-attr-fill="{{ config.c2 }}" x="-20" y="-20" width="40"
+              height="40" fill="#b3473e" transform="scale(1.03998 1.03998)"
+              style="animation-play-state: running; animation-delay: 0s;">
+            <animateTransform attributeName="transform" type="scale" calcMode="spline" values="1.25;1" keyTimes="0;1"
+                              dur="1s" keySplines="0 0.5 0.5 1" begin="-0.2s" repeatCount="indefinite"
+                              style="animation-play-state: running; animation-delay: 0s;"></animateTransform>
+        </rect>
+    </g>
+    <g transform="translate(25,75)" style="animation-play-state: running; animation-delay: 0s;">
+        <rect ng-attr-x="{{ config.dp }}" ng-attr-y="{{ config.dp }}" ng-attr-width="{{ config.blockSize }}"
+              ng-attr-height="{{ config.blockSize }}" ng-attr-fill="{{ config.c3 }}" x="-20" y="-20" width="40"
+              height="40" fill="#4a89aa" transform="scale(1.08095 1.08095)"
+              style="animation-play-state: running; animation-delay: 0s;">
+            <animateTransform attributeName="transform" type="scale" calcMode="spline" values="1.25;1" keyTimes="0;1"
+                              dur="1s" keySplines="0 0.5 0.5 1" begin="0s" repeatCount="indefinite"
+                              style="animation-play-state: running; animation-delay: 0s;"></animateTransform>
+        </rect>
+    </g>
+    <g transform="translate(75,75)" style="animation-play-state: running; animation-delay: 0s;">
+        <rect ng-attr-x="{{ config.dp }}" ng-attr-y="{{ config.dp }}" ng-attr-width="{{ config.blockSize }}"
+              ng-attr-height="{{ config.blockSize }}" ng-attr-fill="{{ config.c4 }}" x="-20" y="-20" width="40"
+              height="40" fill="#586473" transform="scale(1.05824 1.05824)"
+              style="animation-play-state: running; animation-delay: 0s;">
+            <animateTransform attributeName="transform" type="scale" calcMode="spline" values="1.25;1" keyTimes="0;1"
+                              dur="1s" keySplines="0 0.5 0.5 1" begin="-0.1s" repeatCount="indefinite"
+                              style="animation-play-state: running; animation-delay: 0s;"></animateTransform>
+        </rect>
+    </g>
+</svg>
